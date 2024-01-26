@@ -1,0 +1,45 @@
+body{
+    background-color: #000;
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    padding: 12px;
+}
+
+.sidebar_navigation{
+    border-radius: 8px;
+    background-color: #121212;
+    padding: 16px 0 0 16px;
+}
+
+.sidebar_navigation .logo{
+    background: #121212;
+    display: flex;
+    border-radius: 8px;
+    padding: 16px 0 0 16px;
+}
+
+.sidebar_navigation .logo img{
+    width: 80px;
+}
+
+.sidebar nav ul{
+    margin-top: 20px;
+    padding: 0 20px 10px 20px;
+}
+
+.sidebar nav ul li{
+    padding: 10px 0;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: #b3b3b3;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "DM Sans", sans-serif;
+}
