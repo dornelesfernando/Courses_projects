@@ -3,13 +3,10 @@ const playlistContainer = document.getElementById('result-playlists')
 const searchInput = document.getElementById('search-input');
 
 function requestApi(searchTerm){
-    fetch(`http://localhost:3000/artists?name_like=${searchTerm}`)
+    fetch(`http://localhost:3000/artists?name=${searchTerm}`)
         .then((resp) => {
-            resp.json()
-            //console.log(resp);
-            // Error checking 
-            // 200 - 299
-            if(!resp.ok) throw new Error('Was not a valid response')
+            resp.json();
+            if(!resp.ok) throw new Error('Was not a valid response');
         })
         .then((result) => displayResults(result))
         .catch((err) => {
@@ -17,11 +14,21 @@ function requestApi(searchTerm){
         });
 }
 
-function displayResults () {
+function displayResults (result) {
+    playlistContainer.classList.add('hidden');
+    const artistName = document.getElementById('artist-name');
+    const artistImage = document.getElementById('artist-img');
+
+    result.forEach(element => {
+        artistName.innerText = element.name;
+        artistImage.innerText = element.urlImg;
+    });
+
+    resultArtist.classList.remove('hidden');
 
 }
 
-searchInput.addEventListener('input', function(){
+document.addEventListener('input', function(){
     const searchTerm = searchInput.value.toLowerCase();
 
     if(searchTerm === ''){

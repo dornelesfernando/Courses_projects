@@ -1,11 +1,11 @@
 {
     "artists": [
-        {"id": 1, "name": "Aurora", "genre": "Pop", "urlImg": "https://i.scdn.co/image/ab67616d000048513e0d05346299e86c58f75123"},
-        {"id": 2, "name": "Hotel California", "genre": "Rock", "urlImg": "https://i.scdn.co/image/ab67616d000048514637341b9f507521afa9a778"},
+        {"id": 1, "name": "aurora", "genre": "Pop", "urlImg": "https://i.scdn.co/image/ab67616d000048513e0d05346299e86c58f75123"},
+        {"id": 2, "name": "hotel_california", "genre": "Rock", "urlImg": "https://i.scdn.co/image/ab67616d000048514637341b9f507521afa9a778"},
         {"id": 3, "name": "Eminem", "genre": "Hip Hop", "urlImg": "https://i.scdn.co/image/ab67616d000048516ca5c90113b30c3c43ffb8f4"},
-        {"id": 4, "name": "Chitãozinho e Xororó", "genre": "Sertanejo", "urlImg": "https://i.scdn.co/image/ab676161000051744606c59411c57f7b49588be4"},
-        {"id": 5, "name": "Mc Coringa", "genre": "Funk", "urlImg": "https://i.scdn.co/image/ab67616d00001e02fe8f6dd361ad0f12b88c7f56"},
-        {"id": 6, "name": "Arlindo Cruz", "genre": "Samba", "urlImg": "https://i.scdn.co/image/ab67616100005174181873f93056642d7b340839"},
-        {"id": 7, "name": "Caetano Veloso", "genre": "MPB", "urlImg": "https://i.scdn.co/image/ab67616100005174e98de50f36cf1aa4bf047757"}
+        {"id": 4, "name": "chitãozinho_e_xororó", "genre": "Sertanejo", "urlImg": "https://i.scdn.co/image/ab676161000051744606c59411c57f7b49588be4"},
+        {"id": 5, "name": "mc_coringa", "genre": "Funk", "urlImg": "https://i.scdn.co/image/ab67616d00001e02fe8f6dd361ad0f12b88c7f56"},
+        {"id": 6, "name": "arlindo_cruz", "genre": "Samba", "urlImg": "https://i.scdn.co/image/ab67616100005174181873f93056642d7b340839"},
+        {"id": 7, "name": "caetano_veloso", "genre": "MPB", "urlImg": "https://i.scdn.co/image/ab67616100005174e98de50f36cf1aa4bf047757"}
     ]
 }
