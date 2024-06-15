@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+HTML, body{
+    height: 100vh;
+    overflow: hidden;
+}
+
+.gameWrapper{
+    height: 100%;
+}
+
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15%;
+    font-size: 36px;
+}
+
+.game{
+    background-color: blue;
+    display: flex;
+    height: 80%;
+    padding: 20px 20px 0 20px;
+}
+
+.settings{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+
+.nivel{
+    background-color: blueviolet;
+    height: 50%;
+    
+}
+
+.rangeScale{
+    background-color: rgb(157, 192, 30);
+    height: 25%;
+}
+
+.numbers{
+    background-color: rgb(72, 172, 121);
+    height: 25%;
+}
+
+
+
+.main{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.info{
+    background-color: rgb(53, 85, 113);
+    height: 25%;
+}
+
+.play{
+    background-color: rgb(126, 158, 147);
+    height: 75%;
+}
+
+
+.playInfo{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+
+.numbersSort{
+    background-color: rgb(35, 121, 45);
+    height: 50%;
+    position: relative;
+    padding: 5px;
+}
+
+.table{
+    background-color: rgb(52, 131, 200);
+    height: 75%;
+    width: calc(100% - 10px);
+    position: absolute;
+    bottom: 0;
+    margin: 0 0 5px 0;
+}
+
+.time{
+    background-color: rgb(35, 140, 232);
+    height: 25%;
+}
+
+.bestTime{
+    background-color: rgb(13, 63, 107);
+    height: 25%;
+}
