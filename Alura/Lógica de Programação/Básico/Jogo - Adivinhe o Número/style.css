@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
+
 *{
     margin: 0;
     padding: 0;
@@ -6,6 +9,12 @@
 HTML, body{
     height: 100vh;
     overflow: hidden;
+    font-family: "Pixelify Sans", sans-serif;
+    background-image: url(img/wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    color: #fff;
 }
 
 .gameWrapper{
@@ -16,15 +25,17 @@ HTML, body{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 2rem 0 2rem 0;
     height: 15%;
-    font-size: 36px;
+    font-size: 3.5rem;
+    background-image: linear-gradient(45deg, #E21143, #FFB03A, #E21140, #e3c390);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .game{
-    background-color: blue;
     display: flex;
-    height: 80%;
-    padding: 20px 20px 0 20px;
+    height: calc(80% - 4rem);
 }
 
 .settings{
@@ -33,40 +44,99 @@ HTML, body{
     width: 25%;
 }
 
-.nivel{
-    background-color: blueviolet;
-    height: 50%;
-    
+.nivel, .rangeScale, .time{
+    margin-bottom: 3rem;
 }
 
-.rangeScale{
-    background-color: rgb(157, 192, 30);
-    height: 25%;
+.opitions{
+    margin-left: 1.5rem;
 }
 
-.numbers{
-    background-color: rgb(72, 172, 121);
-    height: 25%;
+.rangeScale, .numbers{
+    position: relative;
 }
 
+.rangeInput, .qtdNumbersWrapper{
+    display: flex;
+    gap: .5rem;
+    position: absolute;
+    right: 0;
+    font-size: 1.2rem;
+    margin:.5rem 1.5rem 0 0;
+}
 
+.rangeInput input, .qtdNumbersWrapper input{
+    width: 3rem;
+    display: flex;
+    text-align: center;
+}
+
+input[type=number]::-webkit-inner-spin-button{
+    appearance: none; 
+}
+
+/* - - - - - - - - */
 
 .main{
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 50%;
 }
 
 .info{
-    background-color: rgb(53, 85, 113);
+    display: flex;
+    justify-content: center;
     height: 25%;
+    position: relative;
+    padding: 2rem;
+    background: rgba(134, 81, 81, 0.2);
+    box-shadow: 0 26px 42px rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
+    z-index: 1;
+}
+
+.info h1{
+    z-index: 2;
+    font-size: 2.5rem;
+    background-image: linear-gradient(45deg, #FFB03A, #ffea00);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.atualRange{
+    position: absolute;
+    bottom: 0;
+    right: 0;  
+    margin: 0 1rem 1rem 0;
+}
+
+.atualRange p{
+    font-size: 1.5rem;
 }
 
 .play{
-    background-color: rgb(126, 158, 147);
-    height: 75%;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 3rem;
 }
 
+.play input{
+    display: flex;
+    text-align: center;
+    font-size: 4rem;
+    height: 5rem;
+    width: 8rem;
+}
+
+.playButton{
+    cursor: pointer;
+    font-size: 6rem;
+}
+
+/* - - - - - - - - */
 
 .playInfo{
     display: flex;
@@ -74,28 +144,88 @@ HTML, body{
     width: 25%;
 }
 
-.numbersSort{
-    background-color: rgb(35, 121, 45);
-    height: 50%;
-    position: relative;
-    padding: 5px;
-}
-
 .table{
-    background-color: rgb(52, 131, 200);
-    height: 75%;
-    width: calc(100% - 10px);
-    position: absolute;
-    bottom: 0;
-    margin: 0 0 5px 0;
+    display: grid;
+    place-content: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 1rem 0 .5rem 0;
+    border: 1px solid #FFF;
 }
 
-.time{
-    background-color: rgb(35, 140, 232);
-    height: 25%;
+.attemptsMade{
+    margin: 0 0 1rem 2.5rem;
+    font-size: 1.3rem;
 }
 
-.bestTime{
-    background-color: rgb(13, 63, 107);
-    height: 25%;
+.attempts{
+    padding: .5rem;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 26px 42px rgba(0, 0, 0, 0.1);
+    font-size: 1.3rem;
+}
+
+.playNumber{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeBox p{
+    font-size: 4rem;
+}
+
+
+.bestTimeBox{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 1rem 0 0 2rem;
+}
+
+/* ----------------  */
+.adjust{
+    border: 1px solid #fff;
+    margin: 0 4rem 0 4rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 26px 42px rgba(0, 0, 0, 0.1);
+}
+
+.text_title{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+::placeholder{
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+p{
+    font-size: 1.2rem;
+}
+
+label {
+    cursor: pointer;
+}
+
+.nivel p:hover, .bestTimeBox p:hover, 
+.playButton:hover, .attempts:hover, 
+.rangeScale:hover, .numbers:hover, 
+.attemptsMade:hover, .selected{
+    color: orange;
+    transition: color 0.2s ease;
+}
+
+.nivel .opitions p:hover{
+    color: rgb(225, 0, 255);
+}
+
+.selected::after{
+    content: "  <";
 }

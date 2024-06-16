@@ -12,21 +12,72 @@
             <h1>Adivinhe o Número!</h1>
         </div>
         <div class="game">
-            <div class="settings">
-                <div class="nivel"></div>
-                <div class="rangeScale"></div>
-                <div class="numbers"></div>
+            <div class="settings adjust">
+                <div class="nivel">
+                    <p class="text_title">Jogar sem nível</p>
+
+                    <p class="text_title">Nível</p>
+                    <div class="opitions">
+                        <p>Fácil</p>
+                        <p>Médio</p>
+                        <p>Difícil</p>
+                    </div>
+                </div>
+                <div class="rangeScale">
+                    <label for="rangeMin" class="text_title">Novo Range</label>
+                    <div class="rangeInput">
+                        <input type="number" id="rangeMin" placeholder="min">
+                        <p>-</p>
+                        <input type="number" id="rangeMax" placeholder="max">
+                    </div>
+                </div>
+                <div class="numbers">
+                    <label for="qtdNumbers" class="text_title">Quantidade de números sorteados</label>
+                    <div class="qtdNumbersWrapper">
+                        <input type="number" id="qtdNumbers" placeholder="001">
+                        <p>Números</p>
+                    </div>
+                </div>
             </div>
             <div class="main">
-                <div class="info"></div>
-                <div class="play"></div>
-            </div>
-            <div class="playInfo">
-                <div class="numbersSort">
-                    <div class="table"></div>
+                <div class="info">
+                    <h1>Informações sobre o jogo</h1>
+                    <div class="atualRange">
+                        <p>Range Atual: 00 - 00</p>
+                    </div>
                 </div>
-                <div class="time"></div>
-                <div class="bestTime"></div>
+                <div class="play">
+                    <input type="number" id="number" placeholder="000">
+                    <p class="playButton">Jogar</p>
+                </div>
+            </div>
+            <div class="playInfo adjust">
+                <div class="numbersSort">
+                    <p class="text_title">Números Jogados</p>
+                    <div class="table">
+                        <!--<p class="playNumber">00</p>-->
+                    </div>
+                    <p class="attemptsMade">Tentativas feitas: 00</p>
+                    <p class="attempts">Tentativas Restantes: 000</p>
+                </div>
+                <div class="time">
+                    <p class="text_title">Tempo</p>
+                    <div class="timeBox">
+                        <p class="clock">00:00</p>
+                    </div>
+                </div>
+                <div class="bestTime">
+                    <p class="text_title">Melhores Tempos</p>
+                    <div class="bestTimeBox">
+                        <!--
+                        <p>00:00</p>
+                        <p>00:00</p>
+                        <p>00:00</p>
+                        <p>00:00</p>
+                        <p>00:00</p>
+                        <p>00:00</p>-->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
