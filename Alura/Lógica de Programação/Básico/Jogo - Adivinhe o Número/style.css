@@ -53,7 +53,7 @@ HTML, body{
     cursor: pointer;
 }
 
-.messageLevel, .messageRange{
+.messageLevel, .messageRange, .messageQtd{
     /*display: none;*/
     color: #ff0000;
 }
@@ -66,7 +66,7 @@ HTML, body{
     position: relative;
 }
 
-.rangeInput, .qtdNumbersWrapper{
+.rangeInput{
     display: flex;
     gap: .5rem;
     position: absolute;
@@ -75,7 +75,14 @@ HTML, body{
     margin:.5rem 1.5rem 0 0;
 }
 
-.rangeInput input, .qtdNumbersWrapper input{
+.qtdWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.rangeInput input, .qtdWrapper input{
     width: 3rem;
     display: flex;
     text-align: center;
@@ -236,16 +243,16 @@ label {
     cursor: pointer;
 }
 
-#not-level:hover, .bestTimeBox p:hover, 
+#not-level:hover, #custom:hover, .bestTimeBox p:hover, 
 .playButton:hover, .rangeScale:hover, 
 .numbers:hover, .timeBox:hover, .selected{
     color: orange;
     transition: color 0.2s ease;
 }
 
-#not-level:hover::after, .level .opitions p:hover::after, .bestTimeBox p:hover::after, 
-.playButton:hover::after, .rangeScale:hover::after, 
-.numbers:hover::after, .timeBox:hover::after, .selected::after{
+#not-level:hover::after, #custom:hover::after, .level .opitions p:hover::after,
+.bestTimeBox p:hover::after, .playButton:hover::after, .rangeScale:hover::after, 
+.numbers:hover::after, .timeBox:hover::after, .selected::after, .selectedLevel::after{
     content: "  <";
 }
 
@@ -256,4 +263,17 @@ label {
 
 .level .opitions p:hover{
     color: rgb(225, 0, 255);
+}
+
+.selectedLevel{
+    color: #46ff71;
+}
+
+.check{
+    background-color: #46ff71;
+}
+
+.level p:hover{
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 26px 42px rgba(0, 0, 0, 0.1);
 }

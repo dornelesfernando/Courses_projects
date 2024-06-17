@@ -23,6 +23,8 @@
                         <p id="medium">Médio</p>
                         <p id="hard">Difícil</p>
                     </div>
+                    <p class="text_title" id="custom">Personalizado</p>
+                    <p class="messageCustom"></p>
                 </div>
                 <div class="rangeScale">
                     <label for="rangeMin" class="text_title">Novo Range</label>
@@ -35,9 +37,13 @@
                 </div>
                 <div class="numbers">
                     <label for="qtdNumbers" class="text_title">Quantidade de números sorteados</label>
-                    <div class="qtdNumbersWrapper">
-                        <input type="number" id="qtdNumbers" placeholder="001">
+                    <p class="messageQtd"></p>
+                    <div class="qtdWrapper">
+                        <input type="number" id="qtdNumbers" placeholder="~">
                         <p>Números</p>
+                        <p> || </p>
+                        <input type="number" id="qtdAttempts" placeholder="~">
+                        <p>Tentativas</p>
                     </div>
                 </div>
             </div>
