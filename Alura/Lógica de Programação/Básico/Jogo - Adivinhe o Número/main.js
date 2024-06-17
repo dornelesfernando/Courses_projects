@@ -7,29 +7,36 @@ const custom = document.querySelector("#custom"); // *
 const rangeMin = document.querySelector("#rangeMin");  // *
 const rangeMax = document.querySelector("#rangeMax");  // *
 const qtdNumbers = document.querySelector("#qtdNumbers");   // *
-const qtdAttempts = document.querySelector("#qtdAttempts"); // *
-const number = document.querySelector("#number");
+const qtdAttempts = document.querySelector("#qtdAttempts");  // *
+const number = document.querySelector("#number");  
 
 // play
-const play = document.querySelector("playButton");
+const play = document.querySelector(".playButton"); // *
 
 // info
-const messageCustom = document.querySelector(".messageCustom");
+const messageCustom = document.querySelector(".messageCustom"); // *
 const messageLevel = document.querySelector(".messageLevel");
 const messageRange = document.querySelector(".messageRange")
 const messageQtd = document.querySelector(".messageQtd");
 const levelTitle = document.querySelector("#levelTitle")
 const gameInfo = document.querySelector(".info");
-const rest = document.querySelector("#rest");
-const atualRange = document.querySelector(".atualRange");
+const restInfo = document.querySelector("#rest");
+const atualRangeInfo = document.querySelector(".atualRangeInfo");
 const tableNumbers = document.querySelector(".table")
-const attemptsMade = document.querySelector(".attemptsMade");
-const attempts = document.querySelector(".attempts");
+const attemptsMadeInfo = document.querySelector(".attemptsMade");
+const attemptsInfo = document.querySelector(".attempts");
 const clock = document.querySelector(".clock");
 const bestTimeBox = document.querySelector(".bestTimeBox");
 
-const levels = ["not-level", "ease", "medium", "hard"];
 const messages = [messageLevel, messageCustom, messageRange, messageQtd];
+let setup = true;
+const sortedNumbers = [];
+let minute = 0;
+let second = 0;
+let cron;
+let clockTimeValue;
+let bestTimes = [];
+let attemptsMade = 0;
 
 let gameSettings = {
     level: "not-level",
@@ -197,8 +204,6 @@ qtdNumbers.addEventListener('input', function (e) {
             } 
         }else{
             message("A quantidade de números sorteados não pode menor ou igual a 0", 3, false);
-            qtdNumbers.value = gameSettings.numbersSorted;
-            qtdAttempts.value = gameSettings.attempts;
         }
     }   
 });
@@ -208,45 +213,40 @@ qtdAttempts.addEventListener('input', function (e) {
         message("Insira um número inteiro", 3, false);
     }else{
         if(Number(e.target.value) > 0){
-            if(Number(e.target.value) < gameSettings.attempts){
+            if(Number(e.target.value) < gameSettings.numbersSorted){
                 message("A quantidade de tentativas não pode ser menor que a quantia de números sortados", 3, false);
             }else{
                 messages[3].innerHTML = "";
-                gameSettings.range.min = Number(e.target.value);
+                gameSettings.attempts = Number(e.target.value);
             }  
         }else{
             message("A quantidade de tentativas não pode menor ou igual a 0", 3, false);
-            qtdAttempts.value = gameSettings.attempts;
-            qtdNumbers.value = gameSettings.numbersSorted;
         }
     }   
 });
 
 
-
-if(gameSettings.level === "ease") {
+// ---------------------------------------------------------------------
+play.addEventListener('click', function (e) {
+    if(gameSettings.level === "not-level"){
+        notLevel.classList.add("selected");
+        updateSettings();
+    }
     
-}else if(gameSettings.level === "medium"){
+    if(setup){
+        play.innerHTML = "Jogar";
+        sort(gameSettings.numbersSorted, gameSettings.range.min, gameSettings.range.max);
+        setup = false;
+        clockTime();
+    }else{
+        checkNumber(number.value);
+        attemptsMade++;     
+    }
+    updateGame();
+    number.value = '';
+});
+// ---------------------------------------------------------------------
 
-}else if(gameSettings.level === "hard"){
-
-}else{
-    console.log("Abacates");
-}
-
-
-function attemptsMadeNumbers(){
-    
-};
-
-function clockTime(){
-    
-};
-
-function bestTimeSave(){
-
-};
-// caso seja selecionado 
 
 function message(msg, number, temporary){
     messages[number].innerHTML = msg;
@@ -263,4 +263,68 @@ function updateSettings(){
     rangeMax.value = gameSettings.range.max;
     qtdNumbers.value = gameSettings.numbersSorted;
     qtdAttempts.value = gameSettings.attempts;
+}
+
+function sort(numbersSorted, min, max){
+    for(let i = 0; i < numbersSorted; i++){
+        sortedNumbers[i] = Math.floor(Math.random() * (max - min + 1)) + min;
+        console.log(sortedNumbers[i]);
+    }
+    rest = sortedNumbers.length;
+    console.log(sortedNumbers.length);
+}
+
+function checkNumber(number){
+    for(let i = 0; i < sortedNumbers.length; i++){
+        if(number == sortedNumbers[i]){
+            console.log("acertou");
+            clearInterval(cron);
+            checkTime(clockTimeValue);
+            rest--;
+        }else{
+            console.log("errou");
+        }
+    }
+}
+
+function attemptsMadeNumbers(){
+    
+};
+
+function clockTime(date){
+    cron = setInterval(() => { timer(); }, 1000);
+};
+
+function timer() {
+    if ((second += 1) == 60) {
+        second = 0;
+        minute++;
+    }
+
+    clockTimeValue = `${minute < 10 ? `0${minute}` : minute}:${second < 10 ? `0${second}` : second}`;
+    clock.innerHTML =  clockTimeValue;
+}
+
+function checkTime(){
+
+}
+
+function bestTimeSave(){
+
+};
+
+
+// Game Info
+/*
+const gameInfo = document.querySelector(".info");
+const tableNumbers = document.querySelector(".table")
+const bestTimeBox = document.querySelector(".bestTimeBox");
+*/
+
+function updateGame(){
+    attemptsMadeInfo.innerHTML = attemptsMade;
+    gameSettings.attempts = gameSettings.attempts - attemptsMade;
+    attemptsInfo.innerHTML = gameSettings.attempts; 
+    atualRangeInfo.innerHTML = `${gameSettings.range.min} - ${gameSettings.range.max}`;
+    restInfo.innerHTML = rest;
 }
