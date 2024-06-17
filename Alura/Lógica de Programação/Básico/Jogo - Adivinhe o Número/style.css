@@ -110,7 +110,7 @@ input[type=number]::-webkit-inner-spin-button{
 
 .info{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     height: 25%;
     position: relative;
     padding: 2rem;
@@ -126,6 +126,10 @@ input[type=number]::-webkit-inner-spin-button{
     background-image: linear-gradient(45deg, #FFB03A, #ffea00);
     background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.restBox{
+    display: flex;
 }
 
 #rest{
@@ -235,7 +239,7 @@ input[type=number]::-webkit-inner-spin-button{
 }
 
 .text_title{
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-weight: 600;
     margin-top: 1rem;
 }
@@ -286,3 +290,4 @@ label {
     background: rgba(255, 255, 255, 0.3);
     box-shadow: 0 26px 42px rgba(0, 0, 0, 0.1);
 }
+

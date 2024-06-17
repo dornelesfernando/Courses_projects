@@ -1,3 +1,10 @@
+if (window.innerWidth < 1024) {
+    // Supondo que 1024px seja um limite para dispositivos móveis
+    setInterval(function (){
+        alert('Esta página é acessível apenas em computadores e notebooks.');
+    }, 100);
+}
+
 // Settings
 const notLevel = document.querySelector("#not-level");  // *
 const ease = document.querySelector("#ease");  // *
@@ -19,7 +26,7 @@ const messageLevel = document.querySelector(".messageLevel");
 const messageRange = document.querySelector(".messageRange")
 const messageQtd = document.querySelector(".messageQtd");
 const levelTitle = document.querySelector("#levelTitle")
-const gameInfo = document.querySelector(".info");
+const gameInfo = document.querySelector(".info h1");
 const restInfo = document.querySelector("#rest");
 const atualRangeInfo = document.querySelector(".atualRangeInfo");
 const tableNumbers = document.querySelector(".table")
@@ -238,6 +245,7 @@ play.addEventListener('click', function (e) {
         sort(gameSettings.numbersSorted, gameSettings.range.min, gameSettings.range.max);
         setup = false;
         clockTime();
+        gameInfo.innerHTML = "Tenta a sorte!";
     }else{
         checkNumber(number.value);
         attemptsMade++;     
@@ -277,12 +285,32 @@ function sort(numbersSorted, min, max){
 function checkNumber(number){
     for(let i = 0; i < sortedNumbers.length; i++){
         if(number == sortedNumbers[i]){
-            console.log("acertou");
             clearInterval(cron);
             checkTime(clockTimeValue);
             rest--;
+            if(rest == 0){
+                gameInfo.innerHTML = "Parabéns, você acertou!"
+            }else{
+                gameInfo.innerHTML = "Um já foi, falta os outros!"
+            }
+
+            sortedNumbers.pop(i);
         }else{
             console.log("errou");
+            if(rest == 1){
+                if(number > sortedNumbers[i]){
+                    gameInfo.innerHTML = `O número sorteado é menor que ${number}`;
+                }else{
+                    gameInfo.innerHTML = `O número sorteado é maior que ${number}`;
+                }
+            }else{
+                if(number > sortedNumbers[i]){
+                    gameInfo.innerHTML = `Um dos números sorteados é menor que ${number}`;
+                }else{
+                    gameInfo.innerHTML = `Um números sorteados é maior que ${number}`;
+                }
+            }
+            
         }
     }
 }
@@ -316,7 +344,6 @@ function bestTimeSave(){
 
 // Game Info
 /*
-const gameInfo = document.querySelector(".info");
 const tableNumbers = document.querySelector(".table")
 const bestTimeBox = document.querySelector(".bestTimeBox");
 */
