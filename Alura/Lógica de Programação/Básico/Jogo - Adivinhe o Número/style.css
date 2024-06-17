@@ -15,6 +15,7 @@ HTML, body{
     background-position: center center;
     background-size: cover;
     color: #fff;
+    cursor: default;
 }
 
 .gameWrapper{
@@ -50,6 +51,11 @@ HTML, body{
 
 .level p{
     cursor: pointer;
+}
+
+.messageLevel, .messageRange{
+    /*display: none;*/
+    color: #ff0000;
 }
 
 .opitions{
@@ -108,6 +114,12 @@ input[type=number]::-webkit-inner-spin-button{
     -webkit-text-fill-color: transparent;
 }
 
+#rest{
+    font-size: 2rem;
+    color: rgb(225, 0, 255);
+    margin-left: .5rem;
+}
+
 .atualRange{
     position: absolute;
     bottom: 0;
@@ -156,18 +168,23 @@ input[type=number]::-webkit-inner-spin-button{
     border: 1px solid #FFF;
 }
 
-.attemptsMade{
-    margin: 0 0 1rem 2.5rem;
+.attempBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem;
+    gap: .5rem;
     font-size: 1.3rem;
 }
 
+.attemptsMade{
+    color: rgb(225, 0, 255);
+}
+
 .attempts{
-    display: flex;
-    justify-content: center;
-    padding: .5rem;
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0 26px 42px rgba(0, 0, 0, 0.1);
-    font-size: 1.2rem;
+    color: #FFB03A;
 }
 
 .playNumber{
@@ -219,24 +236,21 @@ label {
     cursor: pointer;
 }
 
-.level p:hover, .bestTimeBox p:hover, 
-.playButton:hover, .attempts:hover, 
-.rangeScale:hover, .numbers:hover, 
-.attemptsMade:hover, .timeBox:hover, .selected{
+#not-level:hover, .bestTimeBox p:hover, 
+.playButton:hover, .rangeScale:hover, 
+.numbers:hover, .timeBox:hover, .selected{
     color: orange;
     transition: color 0.2s ease;
 }
 
-.level p:hover::after, .bestTimeBox p:hover::after, 
-.playButton:hover::after, .attempts:hover::after, 
-.rangeScale:hover::after, .numbers:hover::after, 
-.attemptsMade:hover::after, .timeBox:hover::after, .selected::after{
+#not-level:hover::after, .level .opitions p:hover::after, .bestTimeBox p:hover::after, 
+.playButton:hover::after, .rangeScale:hover::after, 
+.numbers:hover::after, .timeBox:hover::after, .selected::after{
     content: "  <";
 }
 
 .playButton:hover::before, .timeBox:hover::before, 
-.bestTimeBox p:hover::before, .attemptsMade:hover::before,
-.attempts:hover::before{
+.bestTimeBox p:hover::before{
     content: ">  ";
 }
 

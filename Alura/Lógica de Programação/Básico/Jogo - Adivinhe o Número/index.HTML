@@ -16,7 +16,8 @@
                 <div class="level">
                     <p class="text_title" id="not-level">Jogar sem nível</p>
 
-                    <p class="text_title">Nível</p>
+                    <p class="text_title" id="levelTitle">Níveis</p>
+                    <p class="messageLevel"></p>
                     <div class="opitions">
                         <p id="ease">Fácil</p>
                         <p id="medium">Médio</p>
@@ -25,6 +26,7 @@
                 </div>
                 <div class="rangeScale">
                     <label for="rangeMin" class="text_title">Novo Range</label>
+                    <p class="messageRange"></p>
                     <div class="rangeInput">
                         <input type="number" id="rangeMin" placeholder="min">
                         <p>-</p>
@@ -42,6 +44,8 @@
             <div class="main">
                 <div class="info">
                     <h1>Informações sobre o jogo</h1>
+                    <p>Faltam:</p>
+                    <p id="rest">000</p>
                     <div class="atualRange">
                         <p>Range Atual: 00 - 00</p>
                     </div>
@@ -57,8 +61,15 @@
                     <div class="table">
                         <!--<p class="playNumber">00</p>-->
                     </div>
-                    <p class="attemptsMade">Tentativas feitas: 00</p>
-                    <p class="attempts">Tentativas Restantes: 000</p>
+
+                    <div class="attempBox">
+                        <p>Tentativas feitas:</p>
+                        <p class="attemptsMade">000</p>
+                    </div>
+                    <div class="attempBox">
+                        <p>Tentativas Restantes:</p>
+                        <p class="attempts">000</p>
+                    </div>
                 </div>
                 <div class="time">
                     <p class="text_title">Tempo</p>
