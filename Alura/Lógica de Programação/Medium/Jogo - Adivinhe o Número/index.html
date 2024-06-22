@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Jogo Adivinhe o Número</title>
+</head>
+<body>
+    <div class="title">
+        <h1>Adivinhe o Número!</h1>
+    </div>
+    <div class="game">
+        <div class="settings adjust">
+            <div class="level">
+                <p class="text_title" id="not-level">Jogar sem nível</p>
+
+                <p class="text_title" id="levelTitle">Níveis</p>
+                <p class="messageLevel"></p>
+                <div class="opitions">
+                    <p id="ease">Fácil</p>
+                    <p id="medium">Médio</p>
+                    <p id="hard">Difícil</p>
+                </div>
+                <p class="text_title" id="custom">Personalizado</p>
+                <p class="messageCustom"></p>
+            </div>
+            <div class="rangeScale">
+                <label for="rangeMin" class="text_title" id="rangeTitle">Novo Range</label>
+                <p class="messageRange"></p>
+                <div class="rangeInput">
+                    <input type="number" id="rangeMin" placeholder="min">
+                    <p>-</p>
+                    <input type="number" id="rangeMax" placeholder="max">
+                </div>
+            </div>
+            <div class="amount">
+                <label for="amountNumbers" id="amoutTitle">Quantidade de números sorteados</label>
+                <p class="messageAmount"></p>
+                <div class="amountWrapper">
+                    <input type="number" id="amountNumbers" placeholder="~">
+                    <p>Números</p>
+                    <p> || </p>
+                    <input type="number" id="amountAttempts" placeholder="~">
+                    <p>Tentativas</p>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="info">
+                <h1>Escolha um nível e <br> Boa Sorte!</h1>
+                <div class="restBox">
+                    <p>Faltam:</p>
+                    <p id="rest">000</p>
+                </div>
+                <div class="atualRange">
+                    <p>Range Atual:</p>
+                    <p class="atualRangeInfo">00 - 00</p>
+                </div>
+            </div>
+            <div class="play">
+                <input type="number" id="number" placeholder="000">
+                <p class="playButton">Iniciar</p>
+            </div>
+        </div>
+        <div class="playInfo adjust">
+            <div class="numbersSort">
+                <p class="text_title">Números Jogados</p>
+                <div class="table">
+                    <!--<p class="playNumber">00</p>-->
+                </div>
+
+                <div class="attempBox">
+                    <p>Tentativas feitas:</p>
+                    <p class="attemptsMade">000</p>
+                </div>
+                <div class="attempBox">
+                    <p>Tentativas Restantes:</p>
+                    <p class="attempts">000</p>
+                </div>
+            </div>
+            <div class="time">
+                <p class="text_title">Tempo</p>
+                <div class="timeBox">
+                    <p class="clock">00:00</p>
+                </div>
+            </div>
+            <div class="bestTime">
+                <p class="text_title">Melhores Tempos</p>
+                <div class="bestTimeBox">
+                    <!--
+                    <p>00:00</p>
+                    <p>00:00</p>
+                    <p>00:00</p>
+                    <p>00:00</p>
+                    <p>00:00</p>
+                    <p>00:00</p>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+
+dar dica sobre os números
+Dar um quick sort nos numeros para colocarlos em ordem 
+x numeros maiores e y números menores que z
+
+qualquer alteração feita no gameSetting cai em Custom
+
+fazer alterações dos dados que estão na tela do usuário
+
+
+salvar os 6 melhores tempos 
+    Caso a pessoa deixe o mouse em cima aparece as informações do jogo
+        Nível
+        Quantos numeros foram sorteados
+        Quantas tentativas jogadas
+
+Salvar todos os valores jogados
+    Caso exeda o tamanho disponível abre um "Ver mais" ao deixar o mouse em cima
+
+
+
+Criar mensagem de parabéns ou Não foi dessa vez
+
+
