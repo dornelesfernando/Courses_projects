@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
 
 :root{
-    --fontSizeTitles: clamp(1rem, 1.8vw + 0.1rem, 5rem);  /* 2rem */
-    --fontSizeH1: clamp(1rem, 2.25vw + 0.1rem, 5rem);  /* 2.5rem */
-    --fontSizeText:  clamp(1rem, 1.08vw + 0.1rem, 5rem); /* 1.2rem */
-    --fontSizeMedium:  clamp(1rem, 1.35vw + 0.1rem, 5rem);  /* 1.5rem */
-    --fontSizeHigh: clamp(1rem, 3.6vw + 0.1rem, 5rem);  /* 4rem */
-    --fontSizeSuperHigh: clamp(1rem, 5.4vw + 0.1rem, 5rem);   /* 6rem */
+    --fontSizeTitles: clamp(1rem, 1.8vw + 0.1rem, 10rem);  /* 2rem */
+    --fontSizeH1: clamp(1.5rem, 2.25vw + 0.1rem, 10rem);  /* 2.5rem */
+    --fontSizeText:  clamp(1rem, 1.08vw + 0.1rem, 10rem); /* 1.2rem */
+    --fontSizeMedium:  clamp(1.3rem, 1.35vw + 0.1rem, 10rem);  /* 1.5rem */
+    --fontSizeHigh: clamp(1.7rem, 3.6vw + 0.1rem, 5rem);  /* 4rem */
+    --fontSizeSuperHigh: clamp(4rem, 5.4vw + 0.1rem, 5rem);   /* 6rem */
 }
 
 *{
@@ -20,12 +20,16 @@ HTML, body{
     min-height: 100vh;
     overflow: hidden;
     font-family: "Pixelify Sans", sans-serif;
-    background-image: url(img/wallpaper.jpg);
+    background-image: url(../img/wallpaper.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     color: #fff;
     cursor: default;
+}
+
+.settingsMenu{
+    display: none;
 }
 
 .title{
@@ -268,19 +272,19 @@ label {
 
 #not-level:hover, #custom:hover, .bestTimeBox p:hover, 
 .playButton:hover, #rangeTitle:hover, 
-#amoutTitle:hover, .timeBox:hover, .selected{
+#amoutTitle:hover, .timeBox:hover, .selected, .menu:hover{
     color: orange;
     transition: color 0.2s ease;
 }
 
 #not-level:hover::after, #custom:hover::after, .level .opitions p:hover::after,
 .bestTimeBox p:hover::after, .playButton:hover::after, #rangeTitle:hover::after, 
-#amoutTitle:hover::after, .timeBox:hover::after, .selected::after, .selectedLevel::after{
+#amoutTitle:hover::after, .timeBox:hover::after, .selected::after, .selectedLevel::after, .menu:hover::after{
     content: "  <";
 }
 
 .playButton:hover::before, .timeBox:hover::before, 
-.bestTimeBox p:hover::before{
+.bestTimeBox p:hover::before, .menu:hover::before{
     content: ">  ";
 }
 
@@ -299,24 +303,4 @@ label {
 .level p:hover{
     background: rgba(255, 255, 255, 0.3);
     box-shadow: 0 26px 42px rgba(0, 0, 0, 0.1);
-}
-
-
-@media (max-width: 1000px) {
-    HTML, body{
-        overflow: scroll;
-    }
-    
-    .game{
-        flex-direction: column;
-    }
-    
-
-    .title{
-        margin-top: 5rem;
-    }
-}
-
-@media (min-width: 400px ) and (max-width: 800px) {
-
 }

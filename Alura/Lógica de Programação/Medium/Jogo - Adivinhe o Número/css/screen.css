@@ -1,0 +1,67 @@
+@media (max-width: 1000px) {
+    .menu{
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        min-width: 70%;
+        min-height: 10%;
+        padding-left: 2rem;
+        border-end-end-radius: 20px;
+        background: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 26px 42px rgba(0, 0, 0, 0.1);
+    }
+
+    .adjust{
+        border: none;
+        margin: 2rem 1rem;
+        padding: 1rem;
+    }
+
+    .title{
+        margin-top: 5rem;
+    }
+    
+    .game, .attempBox{
+        flex-direction: column;
+    }
+    
+    .main, .playInfo{
+        margin: 0 2rem;
+        width: auto;
+        min-width: 75%;
+    }
+
+    .play input{
+        font-size: clamp(3rem, 3.6vw + 0.1rem, 5rem);
+        height: 5rem;
+        width: 7rem;
+    }
+
+    .playInfo{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr; /* 1 coluna */
+        grid-gap: 2rem;
+    }
+
+    .settings, .bestTime{
+        display: none;
+    }
+}
+
+@media (max-width: 350px) {
+    .title{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .title::after{
+        content: "Resolução muito baixa";
+    }
+    .game{
+        display: none;
+    }
+}

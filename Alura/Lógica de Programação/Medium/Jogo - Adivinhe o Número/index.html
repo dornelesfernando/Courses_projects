@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/screen.css">
     <title>Jogo Adivinhe o Número</title>
 </head>
 <body>
@@ -11,6 +12,10 @@
         <h1>Adivinhe o Número!</h1>
     </div>
     <div class="game">
+        <div class="settingsMenu">
+            <p>settings</p>
+        </div>
+
         <div class="settings adjust">
             <div class="level">
                 <p class="text_title" id="not-level">Jogar sem nível</p>
@@ -46,6 +51,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="main">
             <div class="info">
                 <h1>Escolha um nível e <br> Boa Sorte!</h1>
@@ -63,21 +69,19 @@
                 <p class="playButton">Iniciar</p>
             </div>
         </div>
+
         <div class="playInfo adjust">
             <div class="numbersSort">
                 <p class="text_title">Números Jogados</p>
                 <div class="table">
                     <!--<p class="playNumber">00</p>-->
                 </div>
-
-                <div class="attempBox">
-                    <p>Tentativas feitas:</p>
-                    <p class="attemptsMade">000</p>
-                </div>
-                <div class="attempBox">
-                    <p>Tentativas Restantes:</p>
-                    <p class="attempts">000</p>
-                </div>
+            </div>
+            <div class="attempBox">
+                <p>Tentativas feitas:</p>
+                <p class="attemptsMade">000</p>
+                <p>Tentativas Restantes:</p>
+                <p class="attempts">000</p>
             </div>
             <div class="time">
                 <p class="text_title">Tempo</p>
@@ -103,6 +107,6 @@
     <script src="js/data.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/functions.js"></script>
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
