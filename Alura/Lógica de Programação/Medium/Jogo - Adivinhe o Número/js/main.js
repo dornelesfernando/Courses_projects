@@ -11,11 +11,32 @@ if (document.hidden !== undefined) {
     });
 }
 
-number.addEventListener('keyup', ({key}) => {
-    if (key === "Enter") { 
-        playGame();
-    }
-})
+document.addEventListener('keyup', ({ key }) => {
+    // console.log(key);
+    if(!(numberFocus)){
+        if (/^[0-9]$/.test(key)) {
+            number.value += key;
+        }
+    }   
+    
+    switch(key){
+        case "Enter":
+            playGame();
+            break;
+        case "Backspace":
+            console.log("Bah");
+            number.value = number.value.slice(0, -1);
+            break;
+    };
+});
+
+number.addEventListener('focus', function() {
+    numberFocus = true;
+});
+
+number.addEventListener('blur', function() {
+    numberFocus = false;
+});
 
 play.addEventListener('click', function (e) {
     playGame();
@@ -37,18 +58,31 @@ function playGame(){
         auxAttempts = gameSettings.attempts;
     }
 
-    if(number.value == 0 || number.value == null || number.value == undefined){
-        if(!gameInfo.innerHTML.includes("Insira")){
-            gameInfo.innerHTML += "<br> Insira um número!";
+    for(let i = 0; i < attemptsNumbers.length; i++){
+        if(number.value == attemptsNumbers[i]){
+            repeatedNumber = true;
         }
-    }else if(number.value > gameSettings.range.max){
-        gameInfo.innerHTML = `Número ${number.value} maior que o range máximo!`;
-    }else if(number.value < gameSettings.range.min){
-        gameInfo.innerHTML = `Número ${number.value} menor que o range mínimo!`;        
+    }
+
+    if(repeatedNumber){
+        gameInfo.innerHTML = "Esse número já foi inserido!";
+        repeatedNumber = false;
     }else{
-        console.log(number.value);
-        checkNumber(number.value);
-        attemptsMade++;     
+        if(!number.value){
+            if(!gameInfo.innerHTML.includes("Insira")){
+                gameInfo.innerHTML += "<br> Insira um número!";
+            }
+        }else if(number.value > gameSettings.range.max){
+            gameInfo.innerHTML = `Número ${number.value} maior que o range máximo!`;
+        }else if(number.value < gameSettings.range.min){
+            gameInfo.innerHTML = `Número ${number.value} menor que o range mínimo!`;        
+        }else{
+            console.log(number.value);
+            checkNumber(number.value);
+            attemptsNumbers.push(zeroLeft(number.value));
+            attemptsMadeNumbers();
+            attemptsMade++;     
+        }
     }
 
     updateGame();

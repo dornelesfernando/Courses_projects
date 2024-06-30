@@ -24,14 +24,16 @@ const levelTitle = document.querySelector("#levelTitle");
 const gameInfo = document.querySelector(".info h1");
 const restInfo = document.querySelector("#rest");
 const atualRangeInfo = document.querySelector(".atualRangeInfo");
-const tableNumbers = document.querySelector(".table")
+const tableNumbers = document.querySelector(".table");
 const attemptsMadeInfo = document.querySelector(".attemptsMade");
 const attemptsInfo = document.querySelector(".attempts");
+const moreAttemps = document.querySelector(".more");
 const clock = document.querySelector(".clock");
 const bestTimeBox = document.querySelector(".bestTimeBox");
 
 const messages = [messageLevel, messageCustom, messageRange, messageAmount];
 let setup = true;
+let numberFocus;
 const sortedNumbers = [];
 let minute = 0;
 let second = 0;
@@ -40,6 +42,8 @@ let clockTimeValue;
 let bestTimes = [];
 let auxAttempts;
 let attemptsMade = 0;
+let attemptsNumbers = [];
+let repeatedNumber;
 
 let gameSettings = {
     level: "not-level",

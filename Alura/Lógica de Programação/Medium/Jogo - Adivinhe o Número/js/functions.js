@@ -29,20 +29,25 @@ function sort(numbersSorted, min, max){
 function checkNumber(number){
     for(let i = 0; i < sortedNumbers.length; i++){
         if(number == sortedNumbers[i]){
-            clearInterval(cron);
-            checkTime(clockTimeValue);
             rest--;
             if(rest == 0){
-                gameInfo.innerHTML = "Parabéns, você acertou!"
+                gameInfo.innerHTML = "Parabéns, você acertou!";
                 // salva o tempo
                 setup = true;
                 play.innerHTML = "Iniciar";
+                pauseTime();
             }else{
-                gameInfo.innerHTML = "Um já foi, falta os outros!"
+                gameInfo.innerHTML = "Um já foi, falta os outros!";
             }
 
             sortedNumbers.pop(i);
         }else{
+            if(!(auxAttempts - 1)){
+                gameInfo.innerHTML = "Não foi dessa vez...";
+                pauseTime();
+                return;
+            }
+            
             console.log("errou");
             if(rest == 1){
                 if(number > sortedNumbers[i]){
@@ -56,14 +61,19 @@ function checkNumber(number){
                 }else{
                     gameInfo.innerHTML = `Um números sorteados é maior que ${number}`;
                 }
-            }
-            
+            } 
         }
     }
 }
 
 function attemptsMadeNumbers(){
-    
+    if(attemptsNumbers.length > 6){
+        moreAttemps.style.display = "flex"
+    }else{
+        const element = createElement();
+        element.innerText = zeroLeft(number.value);
+        tableNumbers.appendChild(element);
+    }
 };
 
 function clockTime(date){
@@ -88,7 +98,6 @@ function bestTimeSave(){
 
 };
 
-
 // Game Info
 /*
 const tableNumbers = document.querySelector(".table")
@@ -106,8 +115,18 @@ function zeroLeft(num){
     return num < 10 ? `0${num}` : num;
 }
 
+function pauseTime(){
+    clearInterval(cron);
+    checkTime(clockTimeValue);
+}
 
 // reseta
 function reset(){
     attemptsMade = 0;
+}
+
+function createElement(){
+    const p = document.createElement("p");
+    p.classList.add("playNumber");
+    return p;
 }

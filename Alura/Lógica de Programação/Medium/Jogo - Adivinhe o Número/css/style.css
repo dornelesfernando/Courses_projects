@@ -221,6 +221,12 @@ input[type=number]::-webkit-inner-spin-button{
     color: #FFB03A;
 }
 
+.more{
+    display: none;
+    color: #ff0202;
+    cursor: pointer;
+}
+
 .playNumber{
     display: flex;
     align-items: center;
