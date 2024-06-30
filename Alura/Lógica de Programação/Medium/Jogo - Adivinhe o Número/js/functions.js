@@ -31,6 +31,7 @@ function checkNumber(number){
         if(number == sortedNumbers[i]){
             rest--;
             if(rest == 0){
+                attemptWin = true;
                 gameInfo.innerHTML = "Parabéns, você acertou!";
                 // salva o tempo
                 setup = true;
@@ -47,7 +48,8 @@ function checkNumber(number){
                 pauseTime();
                 return;
             }
-            
+
+            attemptWin = false;
             console.log("errou");
             if(rest == 1){
                 if(number > sortedNumbers[i]){
@@ -70,6 +72,7 @@ function attemptsMadeNumbers(){
     if(attemptsNumbers.length > 6){
         moreAttemps.style.display = "flex"
     }else{
+        moreAttemps.style.display = "none"
         const element = createElement();
         element.innerText = zeroLeft(number.value);
         tableNumbers.appendChild(element);
@@ -105,10 +108,14 @@ const bestTimeBox = document.querySelector(".bestTimeBox");
 */
 
 function updateGame(){
-    attemptsMadeInfo.innerHTML = attemptsMade;
-    auxAttempts = gameSettings.attempts - attemptsMade;
-    attemptsInfo.innerHTML = auxAttempts; 
-    restInfo.innerHTML = rest;
+    if(gameSettings.level === "not-level"){
+        attemptsInfo.innerHTML = "Infinity"
+    }else{
+        auxAttempts = gameSettings.attempts - attemptsMade;
+        attemptsInfo.innerHTML = zeroLeft(auxAttempts); 
+    }
+    attemptsMadeInfo.innerHTML = zeroLeft(attemptsMade);
+    restInfo.innerHTML = zeroLeft(rest);
 }
 
 function zeroLeft(num){
@@ -123,10 +130,18 @@ function pauseTime(){
 // reseta
 function reset(){
     attemptsMade = 0;
+    tableNumbers.innerHTML = '';
+    attemptsNumbers = [];
+    second = 0;
+    minute = 0;
 }
 
 function createElement(){
     const p = document.createElement("p");
     p.classList.add("playNumber");
+
+    if(attemptWin){
+        p.classList.add("attemptWin");
+    }    
     return p;
 }

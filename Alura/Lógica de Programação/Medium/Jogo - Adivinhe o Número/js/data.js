@@ -44,6 +44,7 @@ let auxAttempts;
 let attemptsMade = 0;
 let attemptsNumbers = [];
 let repeatedNumber;
+let attemptWin = false;
 
 let gameSettings = {
     level: "not-level",
@@ -52,5 +53,5 @@ let gameSettings = {
         max: 50,
     },
     numbersSorted: 1,
-    attempts: Infinity,
+    attempts: 999999
 };

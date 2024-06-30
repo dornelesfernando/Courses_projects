@@ -17,26 +17,31 @@ document.addEventListener('keyup', ({ key }) => {
         if (/^[0-9]$/.test(key)) {
             number.value += key;
         }
-    }   
-    
-    switch(key){
-        case "Enter":
-            playGame();
+
+        switch(key){
+            case "Backspace":
+                number.value = number.value.slice(0, -1);
             break;
-        case "Backspace":
-            console.log("Bah");
-            number.value = number.value.slice(0, -1);
-            break;
-    };
+        };
+    }
+
+    if(key === "Enter") playGame();
 });
 
-number.addEventListener('focus', function() {
-    numberFocus = true;
-});
+function handleFocusBlur(event){
+    numberFocus = event.type === 'focus';
+};
 
-number.addEventListener('blur', function() {
-    numberFocus = false;
-});
+number.addEventListener('focus', handleFocusBlur);
+number.addEventListener('blur', handleFocusBlur);
+rangeMin.addEventListener('focus', handleFocusBlur);
+rangeMin.addEventListener('blur', handleFocusBlur);
+rangeMax.addEventListener('focus', handleFocusBlur);
+rangeMax.addEventListener('blur', handleFocusBlur);
+amountNumbers.addEventListener('focus', handleFocusBlur);
+amountNumbers.addEventListener('blur', handleFocusBlur);
+amountAttempts.addEventListener('focus', handleFocusBlur);
+amountAttempts.addEventListener('blur', handleFocusBlur);
 
 play.addEventListener('click', function (e) {
     playGame();
