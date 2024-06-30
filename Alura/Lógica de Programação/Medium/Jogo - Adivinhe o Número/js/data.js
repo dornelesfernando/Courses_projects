@@ -38,6 +38,7 @@ let second = 0;
 let cron;
 let clockTimeValue;
 let bestTimes = [];
+let auxAttempts;
 let attemptsMade = 0;
 
 let gameSettings = {

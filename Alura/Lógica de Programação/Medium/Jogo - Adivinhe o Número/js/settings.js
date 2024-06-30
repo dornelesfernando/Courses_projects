@@ -17,6 +17,7 @@ notLevel.addEventListener('click', function (){
     medium.classList.remove("selectedLevel");
     hard.classList.remove("selectedLevel");
     updateSettings();
+    gameInfo.innerHTML = `Clique em Iniciar para jogar.<br>Boa Sorte!`;
 });
 
 
@@ -43,6 +44,8 @@ ease.addEventListener('click', function (){
     medium.classList.remove("selectedLevel");
     hard.classList.remove("selectedLevel");
     updateSettings();
+    gameInfo.innerHTML = `Clique em Iniciar para jogar.<br>Boa Sorte!`;
+    atualRangeInfo.innerHTML = `${gameSettings.range.min} - ${gameSettings.range.max}`;
 });
 
 medium.addEventListener('click', function (){
@@ -63,6 +66,8 @@ medium.addEventListener('click', function (){
     medium.classList.add("selectedLevel");
     hard.classList.remove("selectedLevel");
     updateSettings();
+    gameInfo.innerHTML = `Clique em Iniciar para jogar.<br>Boa Sorte!`;
+    atualRangeInfo.innerHTML = `${gameSettings.range.min} - ${gameSettings.range.max}`;
 });
 
 hard.addEventListener('click', function (){
@@ -83,20 +88,18 @@ hard.addEventListener('click', function (){
     medium.classList.remove("selectedLevel");
     hard.classList.add("selectedLevel");
     updateSettings();
+    gameInfo.innerHTML = `Clique em Iniciar para jogar.<br>Boa Sorte!`;
+    atualRangeInfo.innerHTML = `${gameSettings.range.min} - ${gameSettings.range.max}`;
 });
 
 
 // Custom Settings
 custom.addEventListener('click', function (){
-    gameSettings = {
-        level: "custom",
-        range: {
-            min: 0,
-            max: 2,
-        },
-        numbersSorted: 1,
-        attempts: 1,
-    };
+    customSettings();
+});
+
+function customSettings(){
+    gameSettings.level = "custom",
     custom.classList.add("selected");
     notLevel.classList.remove("selected");
     levelTitle.classList.remove("selected");
@@ -105,7 +108,9 @@ custom.addEventListener('click', function (){
     medium.classList.remove("selectedLevel");
     hard.classList.remove("selectedLevel");
     updateSettings();
-});
+    gameInfo.innerHTML = `Clique em Iniciar para jogar.<br>Boa Sorte!`;
+    atualRangeInfo.innerHTML = `${gameSettings.range.min} - ${gameSettings.range.max}`;
+}
 
 // Range Settings
 rangeMin.addEventListener('input', function (e) {
@@ -124,7 +129,8 @@ rangeMin.addEventListener('input', function (e) {
         }
         rangeMin.value = gameSettings.range.min;
         rangeMax.value = gameSettings.range.max;
-    }   
+    }
+    customSettings();  
 });
 
 rangeMax.addEventListener('input', function (e) {
@@ -144,6 +150,7 @@ rangeMax.addEventListener('input', function (e) {
             rangeMin.value = gameSettings.range.min;
         }
     }   
+    customSettings();
 });
 
 
@@ -162,7 +169,8 @@ amountNumbers.addEventListener('input', function (e) {
         }else{
             message("A quantidade de números sorteados não pode menor ou igual a 0", 3, false);
         }
-    }   
+    }
+    customSettings(); 
 });
 
 amountAttempts.addEventListener('input', function (e) {
@@ -179,5 +187,6 @@ amountAttempts.addEventListener('input', function (e) {
         }else{
             message("A quantidade de tentativas não pode menor ou igual a 0", 3, false);
         }
-    }   
+    }
+    customSettings(); 
 });

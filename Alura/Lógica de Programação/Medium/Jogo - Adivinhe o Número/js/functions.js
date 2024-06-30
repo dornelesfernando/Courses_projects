@@ -1,24 +1,3 @@
-function playGame(){
-    if(gameSettings.level === "not-level"){
-        notLevel.classList.add("selected");
-        updateSettings();
-    }
-    
-    if(setup){
-        play.innerHTML = "Jogar";
-        sort(gameSettings.numbersSorted, gameSettings.range.min, gameSettings.range.max);
-        setup = false;
-        clockTime();
-        gameInfo.innerHTML = "Tenta a sorte!";
-    }else{
-        checkNumber(number.value);
-        attemptsMade++;     
-    }
-    updateGame();
-    number.value = '';
-}
-
-
 function message(msg, number, temporary){
     messages[number].innerHTML = msg;
     messages[number].style.display = "block";
@@ -34,6 +13,8 @@ function updateSettings(){
     rangeMax.value = gameSettings.range.max;
     amountNumbers.value = gameSettings.numbersSorted;
     amountAttempts.value = gameSettings.attempts;
+    restInfo.innerHTML = zeroLeft(gameSettings.numbersSorted);
+    atualRangeInfo.innerHTML = `${zeroLeft(gameSettings.range.min)} - ${zeroLeft(gameSettings.range.max)}`;
 }
 
 function sort(numbersSorted, min, max){
@@ -53,6 +34,9 @@ function checkNumber(number){
             rest--;
             if(rest == 0){
                 gameInfo.innerHTML = "Parabéns, você acertou!"
+                // salva o tempo
+                setup = true;
+                play.innerHTML = "Iniciar";
             }else{
                 gameInfo.innerHTML = "Um já foi, falta os outros!"
             }
@@ -113,11 +97,17 @@ const bestTimeBox = document.querySelector(".bestTimeBox");
 
 function updateGame(){
     attemptsMadeInfo.innerHTML = attemptsMade;
-    gameSettings.attempts = gameSettings.attempts - attemptsMade;
-    attemptsInfo.innerHTML = gameSettings.attempts; 
-    atualRangeInfo.innerHTML = `${gameSettings.range.min} - ${gameSettings.range.max}`;
+    auxAttempts = gameSettings.attempts - attemptsMade;
+    attemptsInfo.innerHTML = auxAttempts; 
     restInfo.innerHTML = rest;
+}
+
+function zeroLeft(num){
+    return num < 10 ? `0${num}` : num;
 }
 
 
 // reseta
+function reset(){
+    attemptsMade = 0;
+}
