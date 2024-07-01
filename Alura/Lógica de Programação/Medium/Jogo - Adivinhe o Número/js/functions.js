@@ -26,59 +26,6 @@ function sort(numbersSorted, min, max){
     console.log(sortedNumbers.length);
 }
 
-function checkNumber(number){
-    for(let i = 0; i < sortedNumbers.length; i++){
-        if(number == sortedNumbers[i]){
-            rest--;
-            if(rest == 0){
-                attemptWin = true;
-                gameInfo.innerHTML = "Parabéns, você acertou!";
-                // salva o tempo
-                setup = true;
-                play.innerHTML = "Iniciar";
-                pauseTime();
-            }else{
-                gameInfo.innerHTML = "Um já foi, falta os outros!";
-            }
-
-            sortedNumbers.pop(i);
-        }else{
-            if(!(auxAttempts - 1)){
-                gameInfo.innerHTML = "Não foi dessa vez...";
-                pauseTime();
-                return;
-            }
-
-            attemptWin = false;
-            console.log("errou");
-            if(rest == 1){
-                if(number > sortedNumbers[i]){
-                    gameInfo.innerHTML = `O número sorteado é menor que ${number}`;
-                }else{
-                    gameInfo.innerHTML = `O número sorteado é maior que ${number}`;
-                }
-            }else{
-                if(number > sortedNumbers[i]){
-                    gameInfo.innerHTML = `Um dos números sorteados é menor que ${number}`;
-                }else{
-                    gameInfo.innerHTML = `Um números sorteados é maior que ${number}`;
-                }
-            } 
-        }
-    }
-}
-
-function attemptsMadeNumbers(){
-    if(attemptsNumbers.length > 6){
-        moreAttemps.style.display = "flex"
-    }else{
-        moreAttemps.style.display = "none"
-        const element = createElement();
-        element.innerText = zeroLeft(number.value);
-        tableNumbers.appendChild(element);
-    }
-};
-
 function clockTime(date){
     cron = setInterval(() => { timer(); }, 1000);
 };
@@ -92,20 +39,6 @@ function timer() {
     clockTimeValue = `${minute < 10 ? `0${minute}` : minute}:${second < 10 ? `0${second}` : second}`;
     clock.innerHTML =  clockTimeValue;
 }
-
-function checkTime(){
-
-}
-
-function bestTimeSave(){
-
-};
-
-// Game Info
-/*
-const tableNumbers = document.querySelector(".table")
-const bestTimeBox = document.querySelector(".bestTimeBox");
-*/
 
 function updateGame(){
     if(gameSettings.level === "not-level"){
@@ -136,12 +69,42 @@ function reset(){
     minute = 0;
 }
 
-function createElement(){
-    const p = document.createElement("p");
-    p.classList.add("playNumber");
+function attemptsMadeNumbers(){
+    if(attemptsNumbers.length > 12){ // Alterar para 12 
+        moreAttemps.style.display = "flex"
+    }else{
+        moreAttemps.style.display = "none"
+        const element = createElement(true);
+        element.innerText = zeroLeft(number.value);
+        tableNumbers.appendChild(element);
+        assignId(tableNumbers.className);
+    }
+};
 
-    if(attemptWin){
+function lastTimeSave(){
+    const element = createElement(false);
+    element.innerText = clockTimeValue;
+    lastTimeBox.appendChild(element);
+    assignId(lastTimeBox.className);
+};
+
+function createElement(attempt){
+    const p = document.createElement("p");
+    attempt == true ? p.classList.add("playNumber") : p.classList.add("lastNumber");
+
+    if(attemptWin && attempt){
         p.classList.add("attemptWin");
+        attemptWin = false;
     }    
     return p;
+}
+
+function assignId(nameDiv){
+    const items = document.querySelectorAll(`.${nameDiv} p`);
+    const lengthItems = document.querySelectorAll(`.${nameDiv} p`).length;
+    
+    for(let i = 0; i < lengthItems; i++){
+        items[i].setAttribute("id", `${zeroLeft(i)}`);
+    }
+    // pega todos os elementos e coloca os id todos dnv
 }

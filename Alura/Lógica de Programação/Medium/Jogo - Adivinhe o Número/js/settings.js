@@ -16,8 +16,9 @@ notLevel.addEventListener('click', function (){
     ease.classList.remove("selectedLevel");
     medium.classList.remove("selectedLevel");
     hard.classList.remove("selectedLevel");
-    updateSettings();
     gameInfo.innerHTML = `Clique em Iniciar para jogar.<br>Boa Sorte!`;
+    attemptsInfo.innerHTML = "Infinity";
+    updateSettings();
     pauseTime();
     reset();
 });
@@ -45,9 +46,10 @@ ease.addEventListener('click', function (){
     ease.classList.add("selectedLevel");
     medium.classList.remove("selectedLevel");
     hard.classList.remove("selectedLevel");
-    updateSettings();
     gameInfo.innerHTML = `Clique em Iniciar para jogar.<br>Boa Sorte!`;
     atualRangeInfo.innerHTML = `${gameSettings.range.min} - ${gameSettings.range.max}`;
+    attemptsInfo.innerHTML = zeroLeft(gameSettings.attempts);
+    updateSettings();
     pauseTime();
     reset();
 });
@@ -69,9 +71,10 @@ medium.addEventListener('click', function (){
     ease.classList.remove("selectedLevel");
     medium.classList.add("selectedLevel");
     hard.classList.remove("selectedLevel");
-    updateSettings();
     gameInfo.innerHTML = `Clique em Iniciar para jogar.<br>Boa Sorte!`;
     atualRangeInfo.innerHTML = `${gameSettings.range.min} - ${gameSettings.range.max}`;
+    attemptsInfo.innerHTML = zeroLeft(gameSettings.attempts);
+    updateSettings();
     pauseTime();
     reset();
 });
@@ -93,9 +96,10 @@ hard.addEventListener('click', function (){
     ease.classList.remove("selectedLevel");
     medium.classList.remove("selectedLevel");
     hard.classList.add("selectedLevel");
-    updateSettings();
     gameInfo.innerHTML = `Clique em Iniciar para jogar.<br>Boa Sorte!`;
     atualRangeInfo.innerHTML = `${gameSettings.range.min} - ${gameSettings.range.max}`;
+    attemptsInfo.innerHTML = zeroLeft(gameSettings.attempts);
+    updateSettings();
     pauseTime();
     reset();
 });
@@ -115,9 +119,10 @@ function customSettings(){
     ease.classList.remove("selectedLevel");
     medium.classList.remove("selectedLevel");
     hard.classList.remove("selectedLevel");
-    updateSettings();
     gameInfo.innerHTML = `Clique em Iniciar para jogar.<br>Boa Sorte!`;
     atualRangeInfo.innerHTML = `${gameSettings.range.min} - ${gameSettings.range.max}`;
+    attemptsInfo.innerHTML = zeroLeft(gameSettings.attempts);
+    updateSettings();
     pauseTime();
     reset();
 };

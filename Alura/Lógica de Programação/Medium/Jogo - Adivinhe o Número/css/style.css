@@ -249,7 +249,7 @@ input[type=number]::-webkit-inner-spin-button{
     font-size: var(--fontSizeHigh);
 }
 
-.bestTimeBox{
+.lastTimeBox{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin: 1rem 0 0 2rem;
@@ -282,7 +282,7 @@ label {
     cursor: pointer;
 }
 
-#not-level:hover, #custom:hover, .bestTimeBox p:hover, 
+#not-level:hover, #custom:hover, .lastTimeBox p:hover, 
 .playButton:hover, #rangeTitle:hover, 
 #amoutTitle:hover, .timeBox:hover, .selected, .menu:hover{
     color: orange;
@@ -290,13 +290,13 @@ label {
 }
 
 #not-level:hover::after, #custom:hover::after, .level .opitions p:hover::after,
-.bestTimeBox p:hover::after, .playButton:hover::after, #rangeTitle:hover::after, 
+.lastTimeBox p:hover::after, .playButton:hover::after, #rangeTitle:hover::after, 
 #amoutTitle:hover::after, .timeBox:hover::after, .selected::after, .selectedLevel::after, .menu:hover::after{
     content: "  <";
 }
 
 .playButton:hover::before, .timeBox:hover::before, 
-.bestTimeBox p:hover::before, .menu:hover::before{
+.lastTimeBox p:hover::before, .menu:hover::before{
     content: ">  ";
 }
 

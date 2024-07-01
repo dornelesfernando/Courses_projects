@@ -93,3 +93,45 @@ function playGame(){
     updateGame();
     number.value = '';
 }
+
+function checkNumber(number){
+    for(let i = 0; i < sortedNumbers.length; i++){
+        if(number == sortedNumbers[i]){
+            rest--;
+            if(rest == 0){
+                pauseTime();
+                attemptWin = true;
+                gameInfo.innerHTML = "Parabéns, você acertou!";
+                lastTimeSave();
+                setup = true;
+                play.innerHTML = "Iniciar";
+            }else{
+                gameInfo.innerHTML = "Um já foi, falta os outros!";
+            }
+
+            sortedNumbers.pop(i);
+        }else{
+            if(!(auxAttempts - 1)){
+                gameInfo.innerHTML = "Não foi dessa vez...";
+                pauseTime();
+                return;
+            }
+
+            attemptWin = false;
+            console.log("errou");
+            if(rest == 1){
+                if(number > sortedNumbers[i]){
+                    gameInfo.innerHTML = `O número sorteado é menor que ${number}`;
+                }else{
+                    gameInfo.innerHTML = `O número sorteado é maior que ${number}`;
+                }
+            }else{
+                if(number > sortedNumbers[i]){
+                    gameInfo.innerHTML = `Um dos números sorteados é menor que ${number}`;
+                }else{
+                    gameInfo.innerHTML = `Um números sorteados é maior que ${number}`;
+                }
+            } 
+        }
+    }
+}

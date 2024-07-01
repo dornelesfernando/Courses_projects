@@ -29,7 +29,7 @@ const attemptsMadeInfo = document.querySelector(".attemptsMade");
 const attemptsInfo = document.querySelector(".attempts");
 const moreAttemps = document.querySelector(".more");
 const clock = document.querySelector(".clock");
-const bestTimeBox = document.querySelector(".bestTimeBox");
+const lastTimeBox = document.querySelector(".lastTimeBox");
 
 const messages = [messageLevel, messageCustom, messageRange, messageAmount];
 let setup = true;
@@ -39,7 +39,7 @@ let minute = 0;
 let second = 0;
 let cron;
 let clockTimeValue;
-let bestTimes = [];
+let lastTimes = [];
 let auxAttempts;
 let attemptsMade = 0;
 let attemptsNumbers = [];
