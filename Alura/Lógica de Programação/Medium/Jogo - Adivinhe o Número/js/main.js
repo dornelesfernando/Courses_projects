@@ -1,3 +1,22 @@
+gameSettings = {
+    level: "not-level",
+    range: {
+        min: 1,
+        max: 50,
+    },
+    numbersSorted: 1,
+    attempts: 9999999
+};
+notLevel.classList.add("selected");
+levelTitle.classList.remove("selected");
+custom.classList.remove("selected");
+
+ease.classList.remove("selectedLevel");
+medium.classList.remove("selectedLevel");
+hard.classList.remove("selectedLevel");
+attemptsInfo.innerHTML = "Infinity";
+updateSettings();
+
 const titles = ["Vem Adivinhar o Número!", "Desistiu foi?", "Achou que seria fácil?", "Vem jogar!", "Hahaha Fraco!", "Só isso?", "Vamooooo"]
 if (document.hidden !== undefined) {
     document.addEventListener('visibilitychange', function() {
@@ -84,7 +103,7 @@ function playGame(){
         }else{
             console.log(number.value);
             checkNumber(number.value);
-            attemptsNumbers.push(zeroLeft(number.value));
+            attemptsNumbers.unshift(zeroLeft(number.value));
             attemptsMadeNumbers();
             attemptsMade++;     
         }

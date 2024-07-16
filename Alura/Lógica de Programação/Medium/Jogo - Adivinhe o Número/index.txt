@@ -1,14 +1,9 @@
-
-dar dica sobre os números
-Dar um quick sort nos numeros para colocarlos em ordem 
-x numeros maiores e y números menores que z
-
-qualquer alteração feita no gameSetting cai em Custom
-
-fazer alterações dos dados que estão na tela do usuário
+Arrumar os input que não deixam eu colocar qualquer número
+    Deve deixar alterar, mesmo que para valores errados
+        Só não deverá deixar passar
 
 
-salvar os 6 melhores tempos 
+salvar os 6 últimos tempos  Utilizando o local storage 
     Caso a pessoa deixe o mouse em cima aparece as informações do jogo
         Nível
         Quantos numeros foram sorteados
@@ -16,9 +11,17 @@ salvar os 6 melhores tempos
 
 Salvar todos os valores jogados
     Caso exeda o tamanho disponível abre um "Ver mais" ao deixar o mouse em cima
+    Deixar apenas os 12 ÚLTIMOS aparecendo na tela
 
 
+Jogar fogos de artifício caso a pessoa acerte
 
-Criar mensagem de parabéns ou Não foi dessa vez
+Mudar o nome para Jogar novamente
 
+Adicionar tudo nos arrays no início da lista e não ao final com o .push
 
+dividir em 2 arrays, os "Ver mais" cada vez que passar do limite do valor normal
+o último valor da lista principal deve ser adicionado na lista secundária e removido 
+da lista primária. (.pop())
+
+transformar o projeto para o React

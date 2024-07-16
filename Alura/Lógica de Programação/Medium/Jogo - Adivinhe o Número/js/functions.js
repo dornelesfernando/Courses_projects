@@ -60,6 +60,10 @@ function pauseTime(){
     checkTime(clockTimeValue);
 }
 
+function checkTime(){
+
+}
+
 // reseta
 function reset(){
     attemptsMade = 0;
@@ -71,11 +75,11 @@ function reset(){
 
 function attemptsMadeNumbers(){
     if(attemptsNumbers.length > 12){ // Alterar para 12 
-        moreAttemps.style.display = "flex"
+        moreAttemps.style.display = "flex";
     }else{
-        moreAttemps.style.display = "none"
+        moreAttemps.style.display = "none";
         const element = createElement(true);
-        element.innerText = zeroLeft(number.value);
+        element.innerText = zeroLeft(attemptsNumbers[0]);
         tableNumbers.appendChild(element);
         assignId(tableNumbers.className);
     }
