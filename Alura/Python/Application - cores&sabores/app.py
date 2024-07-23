@@ -5,9 +5,7 @@ restaurantes = [{'nome':'Sushi', 'categoria':'Japonesa', 'ativo': False},
                 {'nome':'Cantina', 'categoria':'Abacate', 'ativo': False}]
 
 def exibir_nome_do_programa():
-    print("""
-        𝐂𝐨𝐫𝐞𝐬 & 𝐒𝐚𝐛𝐨𝐫𝐞𝐬
-        """)
+    print("""𝐂𝐨𝐫𝐞𝐬 & 𝐒𝐚𝐛𝐨𝐫𝐞𝐬""")
 
 def exibir_opcoes():
     print('1. Cadastrar restaurante')
